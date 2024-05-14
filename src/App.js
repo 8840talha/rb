@@ -1,10 +1,8 @@
-// App.js
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {  Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 import Header from './components/header';
 import Footer from './components/footer';
-import Carousel from './components/carousal';
 import products from './data/product';
 
 const App = () => {
