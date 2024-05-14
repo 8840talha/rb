@@ -3,7 +3,6 @@ import Image1 from '../assets/1636.jpg';
 import Image2 from '../assets/1711955372Clarks-April-eComm-banner---Internal_1440-x-480_web.avif';
 import Image3 from '../assets/Leather_shoes_1.webp';
 import Image4 from '../assets/download.jpg';
-import Image5 from '../assets/men_landing_page-01.jpg';
 
 const InstagramSection = () => {
   const images = [
