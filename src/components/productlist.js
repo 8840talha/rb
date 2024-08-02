@@ -40,9 +40,9 @@ const ProductList = ({ products }) => {
             </Slider>
             <div className="p-4">
               <h3 className="text-sm font-medium text-gray-700">
-                <a href="#" className="hover:text-blue-500 transition-colors duration-300">
+                <p className="hover:text-blue-500 transition-colors duration-300">
                   {product.title}
-                </a>
+                </p>
               </h3>
               <p className="mt-1 text-sm text-gray-500">{product.category}</p>
               <div className="mt-4 flex justify-between items-center">

@@ -1,26 +1,9 @@
 // Header.js
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
-  const [searchInput, setSearchInput] = useState('');
-
-  const handleSearchInputChange = (event) => {
-    const inputValue = event.target.value.toLowerCase();
-    // setSearchInput(inputValue);
-
-    // if (inputValue.trim() !== '') {
-    //   const filtered = products.filter(
-    //     (product) =>
-    //       product.title.toLowerCase().includes(inputValue) ||
-    //       product.category.toLowerCase().includes(inputValue) ||
-    //       product.size.toString().includes(inputValue)
-    //   );
-    //   setFilteredProducts(filtered);
-    // } else {
-    //   setFilteredProducts([]);
-    // }
-  };
+ 
 
   return (
     <header className="bg-black text-white py-4">
