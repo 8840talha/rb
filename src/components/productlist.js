@@ -1,71 +1,63 @@
 import React from 'react';
-import { useInView } from 'react-intersection-observer'; // Importing useInView for animations on scroll
-import Slider from 'react-slick'; // Importing Slider component from react-slick
+import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import './productlist.css';
 
 const ProductList = ({ products }) => {
-  const { ref, inView } = useInView({
-    threshold: 0.5, // Trigger animation when 50% of the product is in view
-    triggerOnce: true, // Trigger animation only once
-  });
-
   const carouselSettings = {
     dots: true,
     infinite: true,
     speed: 400,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 5000,
   };
 
+  const handleAddToCart = (product) => {
+    const message = `Hi, I'm interested in this product:\n\n*${product.title}*\nCategory: ${product.category}\nPrice: ₹${product.discounted_price}\n\n${product.images[0].src}`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/9990861828?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
-      {products.map((product, index) => (
-        <div
-          key={index}
-          ref={ref}
-          className={`border border-gray-300 rounded-lg overflow-hidden shadow-lg ${
-            inView ? 'animate-fadeIn' : 'opacity-0'
-          }`}
-        >
-          <Slider {...carouselSettings} className="w-full h-64 object-cover">
-            {product.images.map((image) => (
-              <img
-                key={image.id}
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-64 object-cover"
-              />
-            ))}
-          </Slider>
-          <div className="p-4">
-            <h2 className="text-lg font-semibold mb-2">{product.title}</h2>
-            <p className="text-sm text-gray-500 mb-4">{product.category}</p>
-            <div className="flex justify-between items-center mb-4">
-              {product.discounted_price ? (
-                <div>
-                  <span className="text-gray-500 line-through font-medium">
-                    ₹{product.original_price}
-                  </span>{' '}
-                  <span className="text-red-500 font-semibold">
-                    ₹{product.discounted_price}
-                  </span>
+    <div className="container mx-auto px-4 py-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {products.map((product) => (
+          <div key={product.id} className="bg-white rounded-lg overflow-visible shadow-md hover:shadow-lg transition-shadow duration-300">
+            <Slider {...carouselSettings}>
+              {product.images.map((image, index) => (
+                <div key={index} className="relative aspect-w-1 aspect-h-1">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
-              ) : (
-                <span className="text-gray-500 font-medium">
-                  ₹{product.original_price}
-                </span>
-              )}
-              <span className="font-medium">
-                Sizes: {product.available_sizes.join(', ')}
-              </span>
+              ))}
+            </Slider>
+            <div className="p-4">
+              <h3 className="text-sm font-medium text-gray-700">
+                <a href="#" className="hover:text-blue-500 transition-colors duration-300">
+                  {product.title}
+                </a>
+              </h3>
+              <p className="mt-1 text-sm text-gray-500">{product.category}</p>
+              <div className="mt-4 flex justify-between items-center">
+                <p className="text-lg font-semibold text-gray-900">₹{product.discounted_price}</p>
+                <button
+                  onClick={() => handleAddToCart(product)}
+                  className="bg-blue-500 text-white text-sm px-4 py-2 rounded shadow hover:bg-blue-600 transition-colors duration-300"
+                >
+                Buy Now
+                </button>
+              </div>
             </div>
-            {/* <p className="text-sm text-gray-700">{product.description}</p> */}
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

@@ -2,24 +2,24 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = ({ setFilteredProducts, products }) => {
+const Header = () => {
   const [searchInput, setSearchInput] = useState('');
 
   const handleSearchInputChange = (event) => {
     const inputValue = event.target.value.toLowerCase();
-    setSearchInput(inputValue);
+    // setSearchInput(inputValue);
 
-    if (inputValue.trim() !== '') {
-      const filtered = products.filter(
-        (product) =>
-          product.title.toLowerCase().includes(inputValue) ||
-          product.category.toLowerCase().includes(inputValue) ||
-          product.size.toString().includes(inputValue)
-      );
-      setFilteredProducts(filtered);
-    } else {
-      setFilteredProducts([]);
-    }
+    // if (inputValue.trim() !== '') {
+    //   const filtered = products.filter(
+    //     (product) =>
+    //       product.title.toLowerCase().includes(inputValue) ||
+    //       product.category.toLowerCase().includes(inputValue) ||
+    //       product.size.toString().includes(inputValue)
+    //   );
+    //   setFilteredProducts(filtered);
+    // } else {
+    //   setFilteredProducts([]);
+    // }
   };
 
   return (
@@ -35,13 +35,7 @@ const Header = ({ setFilteredProducts, products }) => {
         </nav>
         <div className="flex items-center">
           <div>
-            <input
-              type="text"
-              placeholder="Search..."
-              className="px-3 py-1 text-black rounded-lg border-2 border-white focus:outline-none"
-              value={searchInput}
-              onChange={handleSearchInputChange}
-            />
+            
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ import Filter from '../components/filter';
 import InstagramSection from '../components/instagram'
 import Carousel from '../components/carousal';
 
-const Home = ({ searchedProducts }) => {
+const Home = () => {
   const [sizeFilter, setSizeFilter] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
 
@@ -31,7 +31,7 @@ const Home = ({ searchedProducts }) => {
     );
   });
 
-  const finalProducts = searchedProducts.length > 0 ? searchedProducts : filteredProducts;
+  const finalProducts = filteredProducts;
 
   return (
     <>
