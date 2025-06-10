@@ -18,7 +18,7 @@ const ProductList = ({ products }) => {
   const handleAddToCart = (product) => {
     const message = `Hi, I'm interested in this product:\n\n*${product.title}*\nCategory: ${product.category}\nPrice: ₹${product.discounted_price}\n\n${product.images[0].src}`;
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/9990861828?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/8957044622?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
   };
 

@@ -1,10 +1,12 @@
 // Home.js
 import React, { useState } from 'react';
 import products from '../data/product';
+import categories from '../data/categories';
 import ProductList from '../components/productlist';
 import Filter from '../components/filter';
 import InstagramSection from '../components/instagram'
 import Carousel from '../components/carousal';
+import Categories from '../components/categories';
 
 const Home = () => {
   const [sizeFilter, setSizeFilter] = useState('');
@@ -36,6 +38,8 @@ const Home = () => {
   return (
     <>
       <Carousel />
+      <Categories categoriesData={categories}/>
+
       <Filter
         sizeFilter={sizeFilter}
         categoryFilter={categoryFilter}

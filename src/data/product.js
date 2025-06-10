@@ -3,11 +3,17 @@ import Image8 from '../assets/041 (2).jpeg'
 import Image9 from '../assets/041 (3).jpeg'
 import Image10 from '../assets/0414.jpeg'
 import Image11 from '../assets/05b1.jpeg'
-import Image12 from '../assets/05b2.jpeg'
-import Image13 from '../assets/05b3.jpeg'
-import Image14 from '../assets/cbb1 (1).jpeg'
-import Image15 from '../assets/cbb1 (2).jpeg'
-import Image16 from '../assets/cbb1 (3).jpeg'
+import adamCbl from '../assets/adamCbl.jpg'
+import adamCbl1 from '../assets/adamCbl1.jpg'
+import adamCbl2 from '../assets/adamCbl2.jpg'
+import adamCbl3 from '../assets/adamCbl3.jpg'
+import adamCbl4 from '../assets/adamCbl4.jpg'
+import adamCbl5 from '../assets/adamCbl5.jpg'
+import adamTan1 from '../assets/adamTan1.jpg'
+import adamTan2 from '../assets/adamTan2.jpg'
+import adamTan from '../assets/adamTan.jpg'
+import adamTan3 from '../assets/adamTan3.jpg'
+import adamTan4 from '../assets/adamTan4.jpg'
 
  const products = [
     {
@@ -26,7 +32,7 @@ import Image16 from '../assets/cbb1 (3).jpeg'
     ],
     },
     {
-      "title": "Russellen Brown Plain T-Shape Derby Formal Shoes",
+      "title": "Adam bags luxury blue oil pullup bagpack",
       "article_code": "",
       "category": "Formal",
       "original_price": "6500",
@@ -34,24 +40,29 @@ import Image16 from '../assets/cbb1 (3).jpeg'
       "available_sizes": [5,6,7, 8, 9, 10, 11],
       "description": "Elegant formal shoes comes with pure crust leather encapsulated by a tpr sole and extreme cushion comfort",
          images: [
-      { id: 11, src: Image11, alt: "Image 11" },
-      { id: 12, src: Image13, alt: "Image 12" },
-      { id: 13, src: Image12, alt: "Image 13" },
+      { id: 11, src: adamCbl, alt: "Image 11" },
+      { id: 12, src: adamCbl1, alt: "Image 12" },
+      { id: 12, src: adamCbl2, alt: "Image 13" },
+      { id: 12, src: adamCbl3, alt: "Image 14" },
+      { id: 12, src: adamCbl4, alt: "Image 15" },
+      { id: 12, src: adamCbl5, alt: "Image 16" },
     ],
     },
     {
-      "title": "Russellen Brown Black Chuka Boots",
+      "title": "Adam bagpack",
       "article_code": "",
-      "category": "Sports",
-      "original_price": "12121",
-      "discounted_price": "6980",
+      "category": "leather_bagpack",
+      "original_price": "10000",
+      "discounted_price": "3599",
       "available_sizes": [5,6,7,8, 9, 10, 11],
-      "description": "Chuka boots comes with pure crust leather encapsulated by a  anti skit tpr sole and extreme cushion comfort",
+      "description": "Genuine Crunch leather unisex bagpack",
 
          images: [
-      { id: 14, src: Image14, alt: "Image 14" },
-      { id: 15, src: Image15, alt: "Image 15" },
-      { id: 16, src: Image16, alt: "Image 16" },
+      { id: 14, src: adamTan, alt: "Image 14" },
+      { id: 15, src: adamTan1, alt: "Image 15" },
+      { id: 16, src: adamTan2, alt: "Image 16" },
+      { id: 16, src: adamTan3, alt: "Image 17" },
+      { id: 16, src: adamTan4, alt: "Image 18" },
     ],
     },
     
