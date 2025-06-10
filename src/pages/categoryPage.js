@@ -1,7 +1,7 @@
 // pages/CategoryPage.js
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import products from '../data/product';
+// import products from '../data/product';
 import ProductList from '../components/productlist';
 import Image7 from '../assets/adamTan.jpg'
 import Image9 from '../assets/Adam.jpeg'
@@ -12,9 +12,9 @@ const CategoryPage = () => {
 
   const readableTitle = slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
 
-  const filteredProducts = products.filter(product =>
-    product.category.toLowerCase().replace(/\s+/g, '-') === slug
-  );
+//   const filteredProducts = products.filter(product =>
+//     product.category.toLowerCase().replace(/\s+/g, '-') === slug
+//   );
 
   return (
     <div className="p-6">
