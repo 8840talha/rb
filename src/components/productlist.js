@@ -16,11 +16,16 @@ const ProductList = ({ products }) => {
   };
 
   const handleAddToCart = (product) => {
-    const message = `Hi, I'm interested in this product:\n\n*${product.title}*\nCategory: ${product.category}\nPrice: ₹${product.discounted_price}\n\n${product.images[0].src}`;
+    const phoneNumber = "918957044622"; // Use full international format (no +, no spaces)
+    const message = `Hi, I'm interested in this product:\n\n*${product.title}*\nCategory: ${product.category}\nPrice: ₹${product.discounted_price}\n\n${product.images[0]?.src}`;
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/8957044622?text=${encodedMessage}`;
+  
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+    
+    // Open in new tab or appropriate platform
     window.open(whatsappUrl, '_blank');
   };
+  
 
   return (
     <div className="container mx-auto px-4 py-16">
