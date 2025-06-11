@@ -48,6 +48,8 @@ const Home = () => {
         onCategoryChange={handleCategoryChange}
         onClearFilters={handleClearFilters}
       /> */}
+      <h1 className='text-center mt-20 text-6xl font-semibold'>ALL PRODUCTS</h1>
+      
       <div className="flex justify-start">
         <div className="w-full p-4">
           <ProductList products={finalProducts} />
