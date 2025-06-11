@@ -18,7 +18,7 @@ import adamCbr2 from '../assets/adamCbr2.jpg'
 import adamCbr3 from '../assets/adamCbr3.jpg'
 import adamCroc from '../assets/adamcroc.jpg'
 
- const products = [
+ const bagpacks = [
     {
       "title": "Croco Full Grain Leather adam bagpack",
       "article_code": "RBS-04",
@@ -86,4 +86,4 @@ import adamCroc from '../assets/adamcroc.jpg'
     },
     
   ]
-  export default products;
+  export default bagpacks;

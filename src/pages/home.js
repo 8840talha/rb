@@ -1,59 +1,60 @@
 // Home.js
-import React, { useState } from 'react';
+import React from 'react';
 import products from '../data/product';
 import categories from '../data/categories';
 import ProductList from '../components/productlist';
-import Filter from '../components/filter';
-import InstagramSection from '../components/instagram'
+// import Filter from '../components/filter';
+// import InstagramSection from '../components/instagram'
 import Carousel from '../components/carousal';
 import Categories from '../components/categories';
 
 const Home = () => {
-  const [sizeFilter, setSizeFilter] = useState('');
-  const [categoryFilter, setCategoryFilter] = useState('');
+  // const [sizeFilter, setSizeFilter] = useState('');
+  // const [categoryFilter, setCategoryFilter] = useState('');
 
-  const handleSizeChange = (size) => {
-    setSizeFilter(size);
-  };
+  // const handleSizeChange = (size) => {
+  //   setSizeFilter(size);
+  // };
 
-  const handleCategoryChange = (category) => {
-    setCategoryFilter(category);
-  };
+  // const handleCategoryChange = (category) => {
+  //   setCategoryFilter(category);
+  // };
 
-  const handleClearFilters = () => {
-    setSizeFilter('');
-    setCategoryFilter('');
-  };
+  // const handleClearFilters = () => {
+  //   setSizeFilter('');
+  //   setCategoryFilter('');
+  // };
 
   // Filter products based on size and category
-  const filteredProducts = products.filter((product) => {
-    return (
-      (sizeFilter === '' || product.available_sizes.includes(Number(sizeFilter))) &&
-      (categoryFilter === '' || product.category === categoryFilter)
-    );
-  });
+  // const filteredProducts = products.filter((product) => {
+  //   return (
+  //     (sizeFilter === '' || product.available_sizes.includes(Number(sizeFilter))) &&
+  //     (categoryFilter === '' || product.category === categoryFilter)
+  //   );
+  // });
 
-  const finalProducts = filteredProducts;
+  const finalProducts = products;
 
   return (
     <>
       <Carousel />
+      <h1 className='text-center mt-20 text-6xl font-semibold'>SHOP NOW</h1>
       <Categories categoriesData={categories}/>
 
-      <Filter
+      {/* <Filter
         sizeFilter={sizeFilter}
         categoryFilter={categoryFilter}
         onSizeChange={handleSizeChange}
         onCategoryChange={handleCategoryChange}
         onClearFilters={handleClearFilters}
-      />
+      /> */}
       <div className="flex justify-start">
         <div className="w-full p-4">
           <ProductList products={finalProducts} />
         </div>
       </div>
       <div>
-        <InstagramSection />
+        {/* <InstagramSection /> */}
       </div>
     </>
   );
