@@ -1,8 +1,7 @@
-// components/Categories.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Categories = ({categoriesData}) => {
+const Categories = ({ categoriesData }) => {
   const navigate = useNavigate();
 
   return (
@@ -10,15 +9,19 @@ const Categories = ({categoriesData}) => {
       {categoriesData.map((cat, index) => (
         <div
           key={index}
-          onClick={() => navigate(`/category/${cat.category.toLowerCase().replace(/\s+/g, '-')}`)}
-          className="bg-white rounded-xl  cursor-pointer flex flex-col items-center p-4"
+          onClick={() =>
+            navigate(`/category/${cat.category.toLowerCase().replace(/\s+/g, '-')}`)
+          }
+          className="bg-white rounded-xl cursor-pointer flex flex-col items-center p-4 hover:shadow-lg transition-shadow duration-300"
         >
-          <img
-            src={cat.image.src}
-            alt={cat.image.alt}
-            className="h-40 w-full object-cover rounded-lg mb-3"
-          />
-          <p className="text-center font-semibold text-gray-800">{cat.title}</p>
+          <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden flex items-center justify-center mb-3 border border-gray-200">
+            <img
+              src={cat.image.src}
+              alt={cat.image.alt}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <p className="text-center font-medium text-gray-800">{cat.title}</p>
         </div>
       ))}
     </div>

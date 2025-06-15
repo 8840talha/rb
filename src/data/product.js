@@ -56,6 +56,17 @@ import tot1 from '../assets/tot1.jpg'
 import tot2 from '../assets/tot2.jpg'
 import tot3 from '../assets/tot3.jpg'
 import tot4 from '../assets/tot4.jpg'
+
+
+
+import gz1 from '../assets/gz1.jpg'
+import gz2 from '../assets/gz2.jpg'
+import gz3 from '../assets/gz3.jpg'
+import p7cr from '../assets/7pcr.jpg'
+import p7cr1 from '../assets/7pcr1.jpg'
+import p7cr2 from '../assets/7pcr2.jpg'
+import p7cr3 from '../assets/7pcr3.jpg'
+import p7cr4 from '../assets/7pcr4.jpg'
  const products = [
 
   {
@@ -241,6 +252,22 @@ import tot4 from '../assets/tot4.jpg'
     ],
     },
     {
+      "title": "Russellen Brown 7 pocket premium luxury croco mens bagpack",
+      "article_code": "",
+      "category": "leather_bagpack",
+      "original_price": "20000",
+      "discounted_price": "9999",
+      "available_sizes": [5,6,7,8, 9, 10, 11],
+      "description": "Genuine Crunch leather unisex bagpack",
+         images: [
+      { id: 14, src: p7cr, alt: "Image 14" },
+      { id: 15, src: p7cr1, alt: "Image 15" },
+      { id: 15, src: p7cr2, alt: "Image 153" },
+      { id: 15, src: p7cr3, alt: "Image 153" },
+      { id: 15, src: p7cr4, alt: "Image 153" },
+    ],
+    },
+    {
       "title": "Russellen Brown Dark brown womens tote bag",
       "article_code": "",
       "category": "womens_collection",
@@ -256,5 +283,21 @@ import tot4 from '../assets/tot4.jpg'
       { id: 15, src: tot4, alt: "Image 153" },
     ],
     },
+    {
+      "title": "Russellen Brown Olive Green unisex bagpack",
+      "article_code": "",
+      "category": "womens_collection",
+      "original_price": "10000",
+      "discounted_price": "2999",
+      "available_sizes": [5,6,7,8, 9, 10, 11],
+      "description": "Genuine Crunch leather unisex bagpack",
+         images: [
+      // { id: 14, src: gz, alt: "Image 14" },
+      { id: 15, src: gz1, alt: "Image 15" },
+      { id: 15, src: gz2, alt: "Image 153" },
+      { id: 15, src: gz3, alt: "Image 153" },
+    ],
+    },
+    
   ]
   export default products;

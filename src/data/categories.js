@@ -1,4 +1,4 @@
-import Image15 from '../assets/adamTan.jpg'
+import Image15 from '../assets/7pdb.jpg'
 import Image16 from '../assets/05b1.jpeg'
 import Image14 from '../assets/cbb1.jpeg'
 import ImageL from '../assets/tot.jpg'
@@ -6,7 +6,7 @@ import ImageL from '../assets/tot.jpg'
 
 const categories = [
      {
-       title: "Elegant Leather Handbag",
+       title: "Womens Collection",
        category: "Womens_Collection",
        image: { id: 1, src: ImageL, alt: "Elegant Leather Handbag" }
      },
