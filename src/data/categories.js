@@ -1,14 +1,15 @@
 import Image15 from '../assets/adamTan.jpg'
 import Image16 from '../assets/05b1.jpeg'
 import Image14 from '../assets/cbb1.jpeg'
+import ImageL from '../assets/tot.jpg'
 
 
 const categories = [
-    // {
-    //   title: "Elegant Leather Handbag",
-    //   category: "Women's Collection",
-    //   image: { id: 1, src: Image15, alt: "Elegant Leather Handbag" }
-    // },
+     {
+       title: "Elegant Leather Handbag",
+       category: "Womens_Collection",
+       image: { id: 1, src: ImageL, alt: "Elegant Leather Handbag" }
+     },
     // {
     //   title: "Sling Style Unisex CrossBody Bag",
     //   category: "Unisex-CrossBody",

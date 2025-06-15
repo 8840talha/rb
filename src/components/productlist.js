@@ -1,8 +1,10 @@
-import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './productlist.css';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // AOS CSS
 
 const ProductList = ({ products }) => {
   const carouselSettings = {
@@ -14,6 +16,13 @@ const ProductList = ({ products }) => {
     autoplay: false,
     autoplaySpeed: 5000,
   };
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      // once: true, // Whether animation should happen only once
+    });
+  }, []);
+  
 
   const handleAddToCart = (product) => {
     const phoneNumber = "918957044622"; // Use full international format (no +, no spaces)
@@ -30,38 +39,42 @@ const ProductList = ({ products }) => {
   return (
     <div className="container mx-auto px-4 py-16">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {products.map((product) => (
-          <div key={product.id} className="bg-white rounded-lg overflow-visible shadow-md hover:shadow-lg transition-shadow duration-300">
-            <Slider {...carouselSettings}>
-              {product.images.map((image, index) => (
-                <div key={index} className="relative aspect-w-1 aspect-h-1">
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              ))}
-            </Slider>
-            <div className="p-4">
-              <h3 className="text-sm font-medium text-gray-700">
-                <p className="hover:text-blue-500 transition-colors duration-300">
-                  {product.title}
-                </p>
-              </h3>
-              <p className="mt-1 text-sm text-gray-500">{product.category}</p>
-              <div className="mt-4 flex justify-between items-center">
-                <p className="text-lg font-semibold text-gray-900">₹{product.discounted_price}</p>
-                <button
-                  onClick={() => handleAddToCart(product)}
-                  className="bg-blue-500 text-white text-sm px-4 py-2 rounded shadow hover:bg-blue-600 transition-colors duration-300"
-                >
-                Buy Now
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
+      {products.map((product) => (
+  <div
+    key={product.id}
+    className="bg-white rounded-lg overflow-visible shadow-md hover:shadow-lg transition-shadow duration-300"
+    data-aos="fade-up"
+  >
+    <Slider {...carouselSettings}>
+      {product.images.map((image, index) => (
+        <div key={index} className="relative aspect-w-1 aspect-h-1">
+          <img
+            src={image.src}
+            alt={image.alt}
+            className="w-full h-full object-contain"
+          />
+        </div>
+      ))}
+    </Slider>
+    <div className="p-4">
+      <h3 className="text-sm font-medium text-gray-700">
+        <p className="hover:text-blue-500 transition-colors duration-300">
+          {product.title}
+        </p>
+      </h3>
+      <p className="mt-1 text-sm text-gray-500">{product.category}</p>
+      <div className="mt-4 flex justify-between items-center">
+        <p className="text-lg font-semibold text-gray-900">₹{product.discounted_price}</p>
+        <button
+          onClick={() => handleAddToCart(product)}
+          className="bg-blue-500 text-white text-sm px-4 py-2 rounded shadow hover:bg-blue-600 transition-colors duration-300"
+        >
+          Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
+))}
       </div>
     </div>
   );

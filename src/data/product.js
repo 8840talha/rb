@@ -32,10 +32,32 @@ import f02b from '../assets/02.jpeg'
 import f02b1 from '../assets/021.jpeg'
 import cbb1 from '../assets/cbb1.jpeg'
 import cbb2 from '../assets/cbb2.jpeg'
-import cbb3 from '../assets/cbb3.jpeg'
+import cbb3 from '../assets/cbb3.jpeg';
+
+import p7db from '../assets/7pdb.jpg'
+import p7db1 from '../assets/7pdb1.jpg'
+import p7db2 from '../assets/7pdb2.jpg'
+import p7db3 from '../assets/7pdb3.jpg'
+import p7db4 from '../assets/7pdb4.jpg'
+import p7lb from '../assets/7plb.jpg'
+import p7lb1 from '../assets/7plb1.jpg'
+import p7lb2 from '../assets/7plb2.jpg'
+import p7lb3 from '../assets/7plb3.jpg'
 
 
+import p7g from '../assets/7pg.jpg'
+import p7g1 from '../assets/7pg1.jpg'
+import p7g2 from '../assets/7pg2.jpg'
+import p7g3 from '../assets/7pg3.jpg'
+
+
+import tot from '../assets/tot.jpg'
+import tot1 from '../assets/tot1.jpg'
+import tot2 from '../assets/tot2.jpg'
+import tot3 from '../assets/tot3.jpg'
+import tot4 from '../assets/tot4.jpg'
  const products = [
+
   {
     "title": "Crunch Leather Dark Brown Adam bagpack",
     "article_code": "RBS-04",
@@ -172,6 +194,67 @@ import cbb3 from '../assets/cbb3.jpeg'
       { id: 15, src: cbb3, alt: "Image 153" },
     ],
     },
-    
+    {
+      "title": "Russellen Brown 7 pocket Dark brown mens bagpack",
+      "article_code": "",
+      "category": "leather_bagpack",
+      "original_price": "10000",
+      "discounted_price": "3999",
+      "available_sizes": [5,6,7,8, 9, 10, 11],
+      "description": "Genuine Crunch leather unisex bagpack",
+         images: [
+      { id: 14, src: p7db, alt: "Image 14" },
+      { id: 15, src: p7db1, alt: "Image 15" },
+      { id: 15, src: p7db2, alt: "Image 153" },
+      { id: 15, src: p7db3, alt: "Image 153" },
+      { id: 15, src: p7db4, alt: "Image 153" },
+    ],
+    },
+    {
+      "title": "Russellen Brown 7 pocket Mud brown mens bagpack",
+      "article_code": "",
+      "category": "leather_bagpack",
+      "original_price": "10000",
+      "discounted_price": "7999",
+      "available_sizes": [5,6,7,8, 9, 10, 11],
+      "description": "Genuine Crunch leather unisex bagpack",
+         images: [
+      { id: 14, src: p7lb, alt: "Image 14" },
+      { id: 15, src: p7lb1, alt: "Image 15" },
+      { id: 15, src: p7lb2, alt: "Image 153" },
+      { id: 15, src: p7lb3, alt: "Image 153" },
+    ],
+    },
+    {
+      "title": "Russellen Brown 7 pocket Olive Green mens bagpack",
+      "article_code": "",
+      "category": "leather_bagpack",
+      "original_price": "10000",
+      "discounted_price": "7999",
+      "available_sizes": [5,6,7,8, 9, 10, 11],
+      "description": "Genuine Crunch leather unisex bagpack",
+         images: [
+      { id: 14, src: p7g, alt: "Image 14" },
+      { id: 15, src: p7g1, alt: "Image 15" },
+      { id: 15, src: p7g2, alt: "Image 153" },
+      { id: 15, src: p7g3, alt: "Image 153" },
+    ],
+    },
+    {
+      "title": "Russellen Brown Dark brown womens tote bag",
+      "article_code": "",
+      "category": "womens_collection",
+      "original_price": "10000",
+      "discounted_price": "7999",
+      "available_sizes": [5,6,7,8, 9, 10, 11],
+      "description": "Genuine Crunch leather unisex bagpack",
+         images: [
+      { id: 14, src: tot, alt: "Image 14" },
+      { id: 15, src: tot1, alt: "Image 15" },
+      { id: 15, src: tot2, alt: "Image 153" },
+      { id: 15, src: tot3, alt: "Image 153" },
+      { id: 15, src: tot4, alt: "Image 153" },
+    ],
+    },
   ]
   export default products;
