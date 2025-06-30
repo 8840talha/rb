@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { CartProvider } from './context/cartContext'; // ✅ Import it
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <App />
+    <CartProvider> {/* ✅ Wrap the app */}
+      <App />
+    </CartProvider>
   </BrowserRouter>
 );
 

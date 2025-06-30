@@ -1,110 +1,47 @@
-import React, { useEffect, useState } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import './productlist.css';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useCart } from '../context/cartContext';
 
 const ProductList = ({ products }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
-
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
-
-  const carouselSettings = {
-    dots: true,
-    infinite: true,
-    speed: 400,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: false,
-    autoplaySpeed: 5000,
-  };
-
-  const handleAddToCart = (product) => {
-    const phoneNumber = '918957044622';
-    const message = `Hi, I'm interested in this product:\n\n*${product.title}*\nCategory: ${product.category}\nPrice: ₹${product.discounted_price}\n\n${product.images[0]?.src}`;
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
-  };
-
-  // Pagination Logic
-  const totalPages = Math.ceil(products.length / itemsPerPage);
-  const paginatedProducts = products.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+  const { addToCart } = useCart();
 
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="max-w-7xl mx-auto px-4 py-12">
+      <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Shop Our Collection</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {paginatedProducts.map((product) => (
+        {products.map((product) => (
           <div
-            key={product.id}
-            className="bg-white rounded-lg overflow-visible shadow-md hover:shadow-lg transition-shadow duration-300"
-            data-aos="fade-up"
+            key={product.title}
+            className="bg-white rounded-2xl shadow-md hover:shadow-lg transition overflow-hidden border border-gray-200"
           >
-            <Slider {...carouselSettings}>
-              {product.images.map((image, index) => (
-                <div key={index} className="relative aspect-w-1 aspect-h-1">
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              ))}
-            </Slider>
+            <div className="h-64 w-full overflow-hidden">
+              <img
+                src={product.images[0]?.src}
+                alt={product.title}
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              />
+            </div>
             <div className="p-4">
-              <h3 className="text-sm font-medium text-gray-700">
-                <p className="hover:text-blue-500 transition-colors duration-300">
-                  {product.title}
-                </p>
-              </h3>
-              <p className="mt-1 text-sm text-gray-500">{product.category}</p>
-              <div className="mt-4 flex justify-between items-center">
-                <p className="text-lg font-semibold text-gray-900">
-                  ₹{product.discounted_price}
-                </p>
+              <h3 className="text-lg font-semibold text-gray-900 truncate">{product.title}</h3>
+              <p className="text-sm text-gray-500 mb-2 capitalize">{product.category.replace(/_/g, ' ')}</p>
+              <div className="flex justify-between items-center">
+                <span className="text-xl font-bold text-black">₹{product.discounted_price}</span>
                 <button
-                  onClick={() => handleAddToCart(product)}
-                  className="bg-blue-500 text-white text-sm px-4 py-2 rounded shadow hover:bg-blue-600 transition-colors duration-300"
+                  onClick={() => addToCart(product)}
+                  className="bg-black text-white px-4 py-2 rounded-full text-sm hover:bg-gray-800 transition"
                 >
-                  Buy Now
+                  Add to Cart
                 </button>
               </div>
+              <Link
+                to={`/product/${product.title.replace(/\s+/g, '-')}`}
+                className="block text-center text-blue-500 text-sm mt-3 hover:underline"
+              >
+                View Details
+              </Link>
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Pagination Controls */}
-      <div className="flex justify-center mt-10 space-x-4">
-        <button
-          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-          disabled={currentPage === 1}
-          className={`px-4 py-2 rounded ${
-            currentPage === 1 ? 'bg-gray-300' : 'bg-blue-500 text-white hover:bg-blue-600'
-          }`}
-        >
-          Prev
-        </button>
-
-        <button
-          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-          disabled={currentPage === totalPages}
-          className={`px-4 py-2 rounded ${
-            currentPage === totalPages
-              ? 'bg-gray-300'
-              : 'bg-blue-500 text-white hover:bg-blue-600'
-          }`}
-        >
-          Next
-        </button>
       </div>
     </div>
   );
