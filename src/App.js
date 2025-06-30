@@ -7,6 +7,7 @@ import CategoryPage from './pages/categoryPage';
 import CartPage from './pages/cartPage';
 import CheckoutPage from './pages/checkoutPage';
 import OrderSuccess from './pages/orderSuccess';
+import ProductDetails from './pages/productDetails';
 
 const App = () => {
 
@@ -20,6 +21,8 @@ const App = () => {
              <Route path="/cart" element={<CartPage />} /> {/* ✅ new route */}
              <Route path="/checkout" element={<CheckoutPage />} /> {/* ✅ */}
   <Route path="/order-success" element={<OrderSuccess />} /> {/* ✅ */}
+  <Route path="/product/:slug" element={<ProductDetails/>} />
+
           </Routes>
         </main>
         <Footer />
