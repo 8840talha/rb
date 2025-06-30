@@ -196,7 +196,7 @@ import p7cr4 from '../assets/7pcr4.jpg'
       "article_code": "",
       "category": "leather_boots",
       "original_price": "10000",
-      "discounted_price": "3999",
+      "discounted_price": "3",
       "available_sizes": [5,6,7,8, 9, 10, 11],
       "description": "Genuine Crunch leather unisex bagpack",
          images: [
