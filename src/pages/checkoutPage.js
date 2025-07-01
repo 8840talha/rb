@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 const CheckoutPage = () => {
   const { cartItems, clearCart } = useCart();
   const navigate = useNavigate();
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -34,17 +33,24 @@ const CheckoutPage = () => {
   };
 
   const handlePaid = () => {
-    const message = `Hi, I have made a payment of ₹${totalAmount}.\n\nName: ${formData.name}\nPhone: ${formData.phone}\nAddress: ${formData.address}`;
-    const whatsappLink = `https://wa.me/918957044622?text=${encodeURIComponent(message)}`;
+    // ✅ Message to seller
+    const sellerMessage = `*New Order Placed*\n\nName: ${formData.name}\nPhone: ${formData.phone}\nAddress: ${formData.address}\nAmount: ₹${totalAmount}`;
+    const sellerWhatsApp = `https://wa.me/918957044622?text=${encodeURIComponent(sellerMessage)}`;
 
+    // ✅ Message to customer (optional)
+    const customerMessage = `Thank you ${formData.name}, your order of ₹${totalAmount} has been placed. We'll contact you shortly.`;
+    const customerWhatsApp = `https://wa.me/91${formData.phone}?text=${encodeURIComponent(customerMessage)}`;
+
+    // ✅ Clear cart & redirect
     clearCart();
-    window.location.href = whatsappLink;
+    window.open(sellerWhatsApp, '_blank'); // Open seller notification
+    window.open(customerWhatsApp, '_blank'); // Optional: customer confirmation
     navigate('/order-success', { state: { ...formData, totalAmount } });
   };
 
   return (
-    <div className="max-w-xl mx-auto py-12 px-4">
-      <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Checkout</h2>
+    <div className="max-w-xl mx-auto py-10 px-4">
+      <h2 className="text-2xl font-bold mb-6">Checkout</h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -52,7 +58,7 @@ const CheckoutPage = () => {
           placeholder="Full Name"
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring"
+          className="w-full p-2 border rounded"
           required
         />
         <input
@@ -60,7 +66,7 @@ const CheckoutPage = () => {
           placeholder="Phone Number"
           value={formData.phone}
           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring"
+          className="w-full p-2 border rounded"
           required
         />
         <textarea
@@ -68,41 +74,33 @@ const CheckoutPage = () => {
           rows={4}
           value={formData.address}
           onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring"
+          className="w-full p-2 border rounded"
           required
         />
 
-        <p className="text-xl font-semibold text-center">Total: ₹{totalAmount}</p>
+        <p className="text-lg font-semibold">Total: ₹{totalAmount}</p>
 
         {!showQR ? (
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition"
+            className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
           >
             Proceed to Payment
           </button>
         ) : (
           <>
-            {isMobile ? (
-              <a
-                href={upiUrl}
-                className="block w-full text-center bg-purple-600 text-white py-3 rounded-lg font-semibold hover:bg-purple-700 transition mb-4"
-              >
-                Pay Now via UPI App
-              </a>
-            ) : (
-              <div className="text-center mb-4">
-                <p className="mb-2 text-gray-700 font-medium">
-                  Scan this QR to pay using any UPI app:
-                </p>
-                <img src={qrUrl} alt="UPI QR" className="mx-auto w-48 h-48" />
-              </div>
-            )}
+            <div className="text-center mb-4">
+              <p className="mb-2 text-gray-700 font-medium">
+                Scan this UPI QR with your mobile app:
+              </p>
+              <img src={qrUrl} alt="UPI QR" className="mx-auto w-48 h-48" />
+              <p className="text-sm mt-2 text-gray-500">UPI ID: {upiId}</p>
+            </div>
 
             <button
               type="button"
               onClick={handlePaid}
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+              className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
             >
               I Have Paid
             </button>
