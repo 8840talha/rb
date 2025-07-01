@@ -6,40 +6,29 @@ import { useCart } from '../context/cartContext';
 const ProductDetails = () => {
   const { slug } = useParams();
   const { addToCart } = useCart();
-  const product = products.find((p) => p.title.replace(/\s+/g, '-') === slug);
+  const product = products.find(p => p.title.replace(/\s+/g, '-') === slug);
 
-  if (!product) return <div className="text-center py-20">Product not found.</div>;
+  if (!product) return <div className="text-center py-20 text-lg">Product not found.</div>;
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-10">
+    <div className="container mx-auto px-4 py-10 grid md:grid-cols-2 gap-10">
       <div className="space-y-4">
         {product.images.map((img, i) => (
-          <img
-            key={i}
-            src={img.src}
-            alt={img.alt || product.title}
-            className="w-full rounded-lg border border-gray-200"
-          />
+          <img key={i} src={img.src} alt={img.alt} className="rounded-xl border" />
         ))}
       </div>
-
       <div>
-        <h1 className="text-3xl font-bold text-gray-800 mb-3">{product.title}</h1>
-        <p className="text-sm text-gray-600 mb-6">{product.category.replace(/_/g, ' ')}</p>
-
-        <div className="text-2xl font-bold text-black mb-2">₹{product.discounted_price}</div>
-        <div className="text-gray-500 line-through mb-4">MRP: ₹{product.original_price}</div>
-
-        <p className="text-gray-700 mb-6 leading-relaxed">{product.description}</p>
-
-        <div className="mb-4">
-          <span className="font-medium text-gray-700 mr-2">Available Sizes:</span>
-          <span className="text-sm text-gray-600">{product.available_sizes.join(', ')}</span>
-        </div>
-
+        <h2 className="text-3xl font-bold mb-2">{product.title}</h2>
+        <p className="text-sm text-gray-600 mb-4 capitalize">{product.category.replace(/_/g, ' ')}</p>
+        <p className="text-2xl font-semibold text-black mb-2">₹{product.discounted_price}</p>
+        <p className="line-through text-gray-500 mb-4">MRP: ₹{product.original_price}</p>
+        <p className="text-gray-700 mb-4">{product.description}</p>
+        <p className="text-sm text-gray-700 mb-4">
+          <strong>Available Sizes:</strong> {product.available_sizes.join(', ')}
+        </p>
         <button
           onClick={() => addToCart(product)}
-          className="bg-black text-white px-6 py-3 rounded-full text-sm hover:bg-gray-800 transition"
+          className="bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition"
         >
           Add to Cart
         </button>

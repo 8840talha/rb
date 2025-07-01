@@ -1,12 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import ProductList from '../components/productlist';
-// import formalShoes from '../data/formalshoes';
-// import bagpacks from '../data/bagpacks';
 import products from '../data/product';
+import ProductList from '../components/productlist';
+
 const CategoryPage = () => {
   const { slug } = useParams();
-
   const readableTitle = slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
 
   const filteredProducts = products.filter(product =>
@@ -14,8 +12,8 @@ const CategoryPage = () => {
   );
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">{readableTitle}</h1>
+    <div className="container mx-auto px-4 py-10">
+      <h1 className="text-3xl font-semibold mb-6">{readableTitle}</h1>
       <ProductList products={filteredProducts} />
     </div>
   );
