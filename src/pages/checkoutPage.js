@@ -12,7 +12,7 @@ const CheckoutPage = () => {
     address: '',
   });
 
-  const [showQR, setShowQR] = useState(false);
+  const [showPaymentOptions, setShowPaymentOptions] = useState(false);
 
   const totalAmount = cartItems.reduce(
     (sum, item) => sum + item.discounted_price * item.quantity,
@@ -29,22 +29,20 @@ const CheckoutPage = () => {
       alert('Please fill in all details');
       return;
     }
-    setShowQR(true);
+    setShowPaymentOptions(true);
   };
 
   const handlePaid = () => {
-    // ✅ Message to seller
-    const sellerMessage = `*New Order Placed*\n\nName: ${formData.name}\nPhone: ${formData.phone}\nAddress: ${formData.address}\nAmount: ₹${totalAmount}`;
-    const sellerWhatsApp = `https://wa.me/918957044622?text=${encodeURIComponent(sellerMessage)}`;
+    // WhatsApp messages
+    const sellerMessage = `*New Order Received!*\n\nName: ${formData.name}\nPhone: ${formData.phone}\nAddress: ${formData.address}\nAmount: ₹${totalAmount}`;
+    const customerMessage = `Hello ${formData.name}, your order of ₹${totalAmount} has been placed successfully. We'll contact you soon.\n\nThank you for shopping with us!`;
 
-    // ✅ Message to customer (optional)
-    const customerMessage = `Thank you ${formData.name}, your order of ₹${totalAmount} has been placed. We'll contact you shortly.`;
-    const customerWhatsApp = `https://wa.me/91${formData.phone}?text=${encodeURIComponent(customerMessage)}`;
+    // Open WhatsApp messages
+    window.open(`https://wa.me/918957044622?text=${encodeURIComponent(sellerMessage)}`, '_blank');
+    window.open(`https://wa.me/91${formData.phone}?text=${encodeURIComponent(customerMessage)}`, '_blank');
 
-    // ✅ Clear cart & redirect
+    // Finalize order
     clearCart();
-    window.open(sellerWhatsApp, '_blank'); // Open seller notification
-    window.open(customerWhatsApp, '_blank'); // Optional: customer confirmation
     navigate('/order-success', { state: { ...formData, totalAmount } });
   };
 
@@ -80,7 +78,7 @@ const CheckoutPage = () => {
 
         <p className="text-lg font-semibold">Total: ₹{totalAmount}</p>
 
-        {!showQR ? (
+        {!showPaymentOptions ? (
           <button
             type="submit"
             className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition"
@@ -89,11 +87,16 @@ const CheckoutPage = () => {
           </button>
         ) : (
           <>
+            <a
+              href={upiUrl}
+              className="block w-full text-center bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition mb-4"
+            >
+              Pay via UPI App (PhonePe, GPay, etc.)
+            </a>
+
             <div className="text-center mb-4">
-              <p className="mb-2 text-gray-700 font-medium">
-                Scan this UPI QR with your mobile app:
-              </p>
-              <img src={qrUrl} alt="UPI QR" className="mx-auto w-48 h-48" />
+              <p className="mb-2 text-gray-700 font-medium">Or scan UPI QR code:</p>
+              <img src={qrUrl} alt="UPI QR" className="mx-auto w-48 h-48 rounded border" />
               <p className="text-sm mt-2 text-gray-500">UPI ID: {upiId}</p>
             </div>
 
