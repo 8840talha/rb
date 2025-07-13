@@ -19,17 +19,28 @@ const Carousel = () => {
 
   return (
     <div className="w-full h-screen overflow-hidden">
-      <Slider {...settings}>
-        {[Image1, Image2].map((img, index) => (
-          <div key={index} className="w-full h-screen">
-            <img
-              src={img}
-              alt={`Slide ${index + 1}`}
-              className="w-full h-screen"
-            />
-          </div>
-        ))}
-      </Slider>
+<Slider {...settings}>
+  {[Image1, Image2].map((img, index) => (
+    <div key={index} className="w-full h-screen relative overflow-hidden">
+      {/* Blurred Background */}
+      <img
+        src={img}
+        alt=""
+        className="absolute top-0 left-0 w-full h-full object-cover blur-lg scale-110"
+        aria-hidden="true"
+      />
+      {/* Foreground Image */}
+      <div className="relative w-full h-full flex items-center justify-center">
+        <img
+          src={img}
+          alt={`Slide ${index + 1}`}
+          className="w-full h-full object-contain z-10"
+        />
+      </div>
+    </div>
+  ))}
+</Slider>
+
     </div>
   );
 };

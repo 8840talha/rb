@@ -73,8 +73,8 @@ import p7cr4 from '../assets/7pcr4.jpg'
     "title": "Crunch Leather Dark Brown Adam bagpack",
     "article_code": "RBS-04",
     "category": "leather_bagpack",
-    "original_price": "1233",
-    "discounted_price": "6500",
+    "original_price": "12330",
+    "discounted_price": "7999",
     "available_sizes": [5,6, 7, 8, 9, 10,11],
     "description": "Elegant formal shoes comes with pure crust leather encapsulated by a tpr sole and extreme cushion comfort",
       images: [
@@ -89,7 +89,7 @@ import p7cr4 from '../assets/7pcr4.jpg'
       "article_code": "RBS-04",
       "category": "leather_bagpack",
       "original_price": "1233",
-      "discounted_price": "6500",
+      "discounted_price": "7999",
       "available_sizes": [5,6, 7, 8, 9, 10,11],
       "description": "Elegant formal shoes comes with pure crust leather encapsulated by a tpr sole and extreme cushion comfort",
         images: [
@@ -104,7 +104,7 @@ import p7cr4 from '../assets/7pcr4.jpg'
       "article_code": "RBS-04",
       "category": "leather_bagpack",
       "original_price": "10000",
-      "discounted_price": "3599",
+      "discounted_price": "7999",
       "available_sizes": [5,6, 7, 8, 9, 10,11],
       "description": "Elegant formal shoes comes with pure crust leather encapsulated by a tpr sole and extreme cushion comfort",
         images: [
@@ -121,7 +121,7 @@ import p7cr4 from '../assets/7pcr4.jpg'
       "article_code": "",
       "category": "leather_bagpack",
       "original_price": "10000",
-      "discounted_price": "3599",
+      "discounted_price": "7999",
       "available_sizes": [5,6,7, 8, 9, 10, 11],
       "description": "Elegant formal shoes comes with pure crust leather encapsulated by a tpr sole and extreme cushion comfort",
          images: [
@@ -138,7 +138,7 @@ import p7cr4 from '../assets/7pcr4.jpg'
       "article_code": "",
       "category": "leather_bagpack",
       "original_price": "10000",
-      "discounted_price": "3599",
+      "discounted_price": "7999",
       "available_sizes": [5,6,7,8, 9, 10, 11],
       "description": "Genuine Crunch leather unisex bagpack",
 
@@ -196,7 +196,7 @@ import p7cr4 from '../assets/7pcr4.jpg'
       "article_code": "",
       "category": "leather_boots",
       "original_price": "10000",
-      "discounted_price": "3",
+      "discounted_price": "3000",
       "available_sizes": [5,6,7,8, 9, 10, 11],
       "description": "Genuine Crunch leather unisex bagpack",
          images: [
@@ -209,8 +209,8 @@ import p7cr4 from '../assets/7pcr4.jpg'
       "title": "Russellen Brown 7 pocket Dark brown mens bagpack",
       "article_code": "",
       "category": "leather_bagpack",
-      "original_price": "10000",
-      "discounted_price": "3999",
+      "original_price": "20000",
+      "discounted_price": "9999",
       "available_sizes": [5,6,7,8, 9, 10, 11],
       "description": "Genuine Crunch leather unisex bagpack",
          images: [
@@ -225,8 +225,8 @@ import p7cr4 from '../assets/7pcr4.jpg'
       "title": "Russellen Brown 7 pocket Mud brown mens bagpack",
       "article_code": "",
       "category": "leather_bagpack",
-      "original_price": "10000",
-      "discounted_price": "7999",
+      "original_price": "20000",
+      "discounted_price": "9999",
       "available_sizes": [5,6,7,8, 9, 10, 11],
       "description": "Genuine Crunch leather unisex bagpack",
          images: [
@@ -240,8 +240,8 @@ import p7cr4 from '../assets/7pcr4.jpg'
       "title": "Russellen Brown 7 pocket Olive Green mens bagpack",
       "article_code": "",
       "category": "leather_bagpack",
-      "original_price": "10000",
-      "discounted_price": "7999",
+      "original_price": "20000",
+      "discounted_price": "9999",
       "available_sizes": [5,6,7,8, 9, 10, 11],
       "description": "Genuine Crunch leather unisex bagpack",
          images: [
@@ -256,7 +256,7 @@ import p7cr4 from '../assets/7pcr4.jpg'
       "article_code": "",
       "category": "leather_bagpack",
       "original_price": "20000",
-      "discounted_price": "9999",
+      "discounted_price": "19999",
       "available_sizes": [5,6,7,8, 9, 10, 11],
       "description": "Genuine Crunch leather unisex bagpack",
          images: [

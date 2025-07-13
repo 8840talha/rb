@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 import Header from './components/header';
 import Footer from './components/footer';
@@ -14,23 +14,23 @@ import Contact from './pages/contact';
 const App = () => {
 
   return (
-      <div>
-        <Header   />
-        <main className="py-8">
-          <Routes>
-            <Route path="/" element={<Home  />} />
-            <Route path="/category/:slug" element={<CategoryPage />} />
-             <Route path="/cart" element={<CartPage />} /> {/* ✅ new route */}
-             <Route path="/checkout" element={<CheckoutPage />} /> {/* ✅ */}
-  <Route path="/order-success" element={<OrderSuccess />} /> {/* ✅ */}
-  <Route path="/product/:slug" element={<ProductDetails/>} />
-  <Route path="/about" element={<About />} />
-  <Route path="/contact" element={<Contact />} />
+    <div>
+      <Header />
+      <main className="">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/category/:slug" element={<CategoryPage />} />
+          <Route path="/cart" element={<CartPage />} /> {/* ✅ new route */}
+          <Route path="/checkout" element={<CheckoutPage />} /> {/* ✅ */}
+          <Route path="/order-success" element={<OrderSuccess />} /> {/* ✅ */}
+          <Route path="/product/:slug" element={<ProductDetails />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
 
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   );
 };
 
